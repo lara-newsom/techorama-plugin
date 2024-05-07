@@ -13,15 +13,60 @@
       },
       "x-prompt": "What name would you like to use?"
     },
-    "directoryName": {
+    "scope": {
       "type": "string",
-      "description": "",
+      "description": "Scope tag for library",
       "$default": {
         "$source": "argv",
-        "index": 0
+        "index": 1
       },
-      "x-prompt": "What directory name would you like to use?"
+      "x-prompt": {
+        "message": "What scope is this library?",
+        "type": "list",
+        "items": [
+          "web",
+          "mobile",
+          "shared"
+        ]
+      }
+    },
+    "domain": {
+      "type": "string",
+      "description": "Domain tag for library",
+      "$default": {
+        "$source": "argv",
+        "index": 2
+      },
+      "x-prompt": {
+        "message": "What domain is this library?",
+        "type": "list",
+        "items": [
+          "cats",
+          "dogs",
+          "birds",
+          "all"
+        ]
+      }
+    },
+    "type": {
+      "type": "string",
+      "description": "Type tag for library",
+      "$default": {
+        "$source": "argv",
+        "index": 3
+      },
+      "x-prompt": {
+        "message": "What type is this library?",
+        "type": "list",
+        "items": [
+          "data-access",
+          "feature",
+          "util",
+          "model",
+          "ui"
+        ]
+      }
     }
   },
-  "required": ["name", "directoryName"]
+  "required": ["name", "scope", "domain", "type"]
 }

@@ -1,4 +1,6 @@
 export interface MyGeneratorGeneratorSchema {
   name: string;
-  directoryName: string;
+  scope: 'web' | 'mobile' | 'shared';
+  domain: 'cats' | 'dogs' | 'birds' | 'all';
+  type: 'data-access' | 'feature' | 'util' | 'model' | 'ui';
 }
