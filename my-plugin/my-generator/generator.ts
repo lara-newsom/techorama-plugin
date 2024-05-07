@@ -1,5 +1,8 @@
 import {
   Tree,
+  generateFiles,
+  joinPathFragments,
+  readProjectConfiguration,
 } from '@nx/devkit';
 import { MyGeneratorGeneratorSchema } from './schema';
 import { libraryGenerator} from '@nx/angular/generators';
@@ -20,12 +23,18 @@ export async function myGeneratorGenerator(
 
       const codePath = `libs/${options.scope}/${options.domain}/${type}/${options.name}`;
       updateCodeownersFile(tree, codePath, options.codeowners);
+
+      const formattedName = `${options.scope}-${options.domain}-${type}-${options.name}`;
+      createTestSetupFile(tree, formattedName);
     }
   } else {
     await generateLibrary(tree, options);
-    
+
     const codePath = `libs/${options.scope}/${options.domain}/${options.type}/${options.name}`;
     updateCodeownersFile(tree, codePath, options.codeowners);
+
+    const formattedName = `${options.scope}-${options.domain}-${options.type}-${options.name}`;
+    createTestSetupFile(tree, formattedName);
   }
 }
 
@@ -53,6 +62,13 @@ function updateCodeownersFile(tree: Tree, path: string, codeowners?: string) {
       )
     }
   }
+}
+
+function createTestSetupFile(tree: Tree, name: string) {
+  const libraryRoot = readProjectConfiguration(tree, name).root;
+  generateFiles(tree, joinPathFragments(__dirname, 'files'), libraryRoot, {
+    template: ''
+  });
 }
 
 export default myGeneratorGenerator;
