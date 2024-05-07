@@ -8,7 +8,10 @@ export async function myGeneratorGenerator(
   tree: Tree,
   options: MyGeneratorGeneratorSchema
 ) {
-  await libraryGenerator(tree, options)
+  await libraryGenerator(tree, {
+    ...options,
+    projectNameAndRootFormat: 'as-provided'
+  })
 }
 
 export default myGeneratorGenerator;
