@@ -5,4 +5,5 @@ export interface MyGeneratorGeneratorSchema {
   scope: 'web' | 'mobile' | 'shared';
   domain: 'cats' | 'dogs' | 'birds' | 'all';
   type: 'all' | AllTypes;
+  codeowners?: string;
 }

@@ -67,6 +67,14 @@
           "all"
         ]
       }
+    },
+    "codeowners": {
+      "type": "string",
+      "description": "Provide a user/team name to configure CODEOWNERS",
+      "$default": {
+        "$source": "argv"
+      },
+      "x-prompt": "Provide a user/team name to configure CODEOWNERS"
     }
   },
   "required": ["name", "scope", "domain", "type"]
