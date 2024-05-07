@@ -63,7 +63,8 @@
           "feature",
           "util",
           "model",
-          "ui"
+          "ui",
+          "all"
         ]
       }
     }
