@@ -9,8 +9,10 @@ export async function myGeneratorGenerator(
   options: MyGeneratorGeneratorSchema
 ) {
   await libraryGenerator(tree, {
-    ...options,
-    projectNameAndRootFormat: 'as-provided'
+    name: options.name,
+    projectNameAndRootFormat: 'as-provided',
+    directory: `libs/${options.directoryName}/${options.name}`,
+    importPath: `@Techorama/${options.directoryName}/${options.name}`
   })
 }
 

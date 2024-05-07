@@ -13,15 +13,15 @@
       },
       "x-prompt": "What name would you like to use?"
     },
-    "directory": {
+    "directoryName": {
       "type": "string",
       "description": "",
       "$default": {
         "$source": "argv",
         "index": 0
       },
-      "x-prompt": "What directory would you like to use?"
+      "x-prompt": "What directory name would you like to use?"
     }
   },
-  "required": ["name", "directory"]
+  "required": ["name", "directoryName"]
 }
